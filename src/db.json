@@ -1,0 +1,8 @@
+{
+    "teams": [
+        { "id": 1, "body": "some comment", "postId": 1 },
+        { "id": 2, "body": "somea comment", "postId": 1 },
+        { "id": 3, "body": "somes comment", "postId": 1 },
+        { "id": 4, "body": "some dcomment", "postId": 1 }
+    ]
+}
