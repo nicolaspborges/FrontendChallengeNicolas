@@ -9,23 +9,15 @@ import { TeamsListComponent } from './components/teams-list/teams-list.component
 import { HttpClientModule } from '@angular/common/http';
 import { TeamsService } from './services/teams.service';
 
-
-
-
 @NgModule({
-  declarations: [
-    HomeComponent,
-    AddTeamsFormComponent,
-    TeamsListComponent,
-    
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    SharedModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [TeamsService]
+    declarations: [HomeComponent, AddTeamsFormComponent, TeamsListComponent],
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        SharedModule,
+        FormsModule,
+        HttpClientModule,
+    ],
+    providers: [TeamsService],
 })
-export class DashboardModule { }
+export class DashboardModule {}

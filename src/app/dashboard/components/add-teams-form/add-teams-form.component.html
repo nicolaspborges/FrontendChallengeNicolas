@@ -6,7 +6,7 @@
     
     
     <form #teamsForm="ngForm" (ngSubmit)="submitTeamsForm(teamsForm)"  >
-        <input name="team" ngModel type="text"  >
+        <input name="name" ngModel type="text"  >
 
         <app-button [buttonClass]="'addteams-button'" [buttonStyle]="'background-color: red'" [buttonText]="'Adicionar'" [buttonType]="'submit'" ></app-button>
     </form>

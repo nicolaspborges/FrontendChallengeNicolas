@@ -1,8 +1,28 @@
 {
-    "teams": [
-        { "id": 1, "body": "some comment", "postId": 1 },
-        { "id": 2, "body": "somea comment", "postId": 1 },
-        { "id": 3, "body": "somes comment", "postId": 1 },
-        { "id": 4, "body": "some dcomment", "postId": 1 }
-    ]
+  "teams": [
+    {
+      "id": 1,
+      "name": "some comment"
+    },
+    {
+      "id": 2,
+      "name": "somea comment"
+    },
+    {
+      "name": "dasdasd",
+      "id": 3
+    },
+    {
+      "name": "dasdasd",
+      "id": 4
+    },
+    {
+      "name": "dasdasddasd",
+      "id": 5
+    },
+    {
+      "name": "asdas",
+      "id": 6
+    }
+  ]
 }

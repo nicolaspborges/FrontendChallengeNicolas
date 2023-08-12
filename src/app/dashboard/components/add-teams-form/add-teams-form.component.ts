@@ -7,10 +7,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-teams-form.component.sass'],
 })
 export class AddTeamsFormComponent {
-    @Output() formSubmission = new EventEmitter<string>(); 
+    @Output() formSubmission = new EventEmitter<object>(); 
 
     submitTeamsForm(form: NgForm) {
         console.log(form.value);
-        this.formSubmission.emit(form.value.team)
+        this.formSubmission.emit(form.value)
     }
 }
