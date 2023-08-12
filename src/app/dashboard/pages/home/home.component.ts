@@ -22,7 +22,8 @@ export class HomeComponent {
                 this.teamsData = response;
             },
             error: (error) => {
-                console.error(error, "Error getiing teams")
+                console.error(error, "Error getiing teams");
+                
             }
         });
     }

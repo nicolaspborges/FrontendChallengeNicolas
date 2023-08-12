@@ -1,0 +1,75 @@
+<div class="bracket-display">
+    <ul class="bracket-column">
+        <li class="bracket-field" *ngFor="let team of electedTeams, let i = index">
+            <app-bracket-tile (selectedTeam)="onQuarterFinalistSelect($event)" [team]="team" [index]="i" />
+        </li>
+    </ul>
+    <ul class="bracket-column">
+        <li
+            class="bracket-field-empty"
+            *ngFor="let item of electedTeams; let i = index"
+        >
+            <div class="upper" style="height: 50%"></div>
+            <div class="lower" style="height: 50%"></div>
+        </li>
+    </ul>
+
+    <ul class="bracket-column">
+        <li class="bracket-field" *ngFor="let item of quarterFinalists | keyvalue, let i = index">
+            <app-bracket-tile
+                [team]="item.value" (selectedTeam)="onFinalistSelect($event)" [index]="i"
+            />
+        </li>
+    </ul>
+
+    <ul class="bracket-column">
+        <li class="bracket-field-empty" *ngFor="let item of lengthTre">
+            <div class="upper" style="height: 25%"></div>
+            <div style="height: 50%"></div>
+            <div class="lower" style="height: 25%"></div>
+        </li>
+    </ul>
+
+    <ul class="bracket-column">
+        <li class="bracket-field" *ngFor="let item of semiFinalists | keyvalue, let i = index">
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                "
+            >
+                <app-bracket-tile
+                    [team]="item.value" [index]="i"
+                />
+            </div>
+        </li>
+    </ul>
+
+    <ul class="bracket-column">
+        <li class="bracket-field-empty" *ngFor="let item of lengthFour">
+            <div class="upper" style="height: 50%"></div>
+            <div class="lower" style="height: 50%"></div>
+        </li>
+    </ul>
+
+    <ul class="bracket-column">
+        <li class="bracket-field" *ngFor="let item of lengthFive">
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                "
+            >
+                <app-bracket-tile
+                    [team]="lengthTre.length > 0 ? item : 'oitavas'"
+                />
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
+import { Team } from 'src/app/models/team';
 
 @Component({
     selector: 'app-teams-list',
@@ -9,7 +10,7 @@ import { TeamsService } from '../../services/teams.service';
 export class TeamsListComponent {
     constructor(private teamsService: TeamsService) {}
 
-    @Input() teams: any = [];
+    @Input() teams!: Team[];
 
     
 }
