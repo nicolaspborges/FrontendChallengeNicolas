@@ -13,23 +13,28 @@ export class BracketComponent {
 
     electedTeams!: Team[];
 
+    chosen: any = [true, true, true, true, true, true, true, true]
+
     eighthFinalists!: Team[];
 
-    quarterFinalists: any = { //names must be in alphabetical order
-        "quarterAFirst": '',
-        "quarterASecond": '',
-        "quarterBFirst": '',
-        "quarterBSecond": '',
+    semiFinalists: any = { //names must be in alphabetical order
+        "semiAFirst": '',
+        "semiASecond": '',
+        "semiBFirst": '',
+        "semiBSecond": '',
     };
 
-    semiFinalists: any = {
+    finalists: any = {
         "finalistA": '',
         "finalistB": ''
     } ;
 
+    champion: Team = {}  as Team;
+
     @Input() teamSelected: EventEmitter<object> = new EventEmitter<object>();
 
     ngOnInit() {
+        console.log(this.champion)
         this.teamsService.getTeams().subscribe({
             next: (response) => {
                 this.electedTeams = response;
@@ -43,38 +48,42 @@ export class BracketComponent {
         });
     }
 
-    onQuarterFinalistSelect(selectedTeam: SelectedTeam) {
+    onSemiFinalistSelect(selectedTeam: SelectedTeam) {
         const { index, team } = selectedTeam;
 
         switch (index) {
             case 0:
             case 1:
-                this.quarterFinalists['quarterAFirst'] = team;
+                this.semiFinalists['semiAFirst'] = team;
                 break;
             case 2:
             case 3:
-                this.quarterFinalists['quarterASecond'] = team;
+                this.semiFinalists['semiASecond'] = team;
                 break;
             case 4:
             case 5:
-                this.quarterFinalists['quarterBFirst'] = team;
+                this.semiFinalists['semiBFirst'] = team;
                 break;
             case 6:
             case 7:
-                this.quarterFinalists['quarterBSecond'] = team;
+                this.semiFinalists['semiBSecond'] = team;
                 break;
         }
-        console.log(this.quarterFinalists);
+        console.log(this.semiFinalists);
     }
 
     onFinalistSelect(selectedTeam: SelectedTeam) {
        const { index, team } = selectedTeam;
 
        if(index < 2) {
-        this.semiFinalists['finalistA'] = team;
+        this.finalists['finalistA'] = team;
        } else if (index>=2 && index < 8) {
-        this.semiFinalists['finalistB'] = team;
+        this.finalists['finalistB'] = team;
        }
+    }
+
+    onChampionsSelect(selectedTeam: SelectedTeam) {
+        this.champion = selectedTeam.team;
     }
 
     quarterPositions!: any;
