@@ -18,3 +18,7 @@ The application allows the user to add 8 teams and experience a dynamic tourname
 
 As the challenge is set in Valoran, I found it appropriate to use the color palette and typography from League of Legends (although I prefer lighter tones usually).
 
+### Creator
+
+https://github.com/nicolaspborges96
+https://www.linkedin.com/in/nicolas-p-borges/
