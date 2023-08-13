@@ -31,6 +31,7 @@ export class BracketComponent {
     } ;
 
     champion: Team = {}  as Team;
+    championChosed: boolean = false;
 
     @Input() teamSelected: EventEmitter<object> = new EventEmitter<object>();
 
@@ -86,6 +87,7 @@ export class BracketComponent {
 
     onChampionsSelect(selectedTeam: SelectedTeam) {
         this.champion = selectedTeam.team;
+        this.championChosed = true
     }    
 
 }

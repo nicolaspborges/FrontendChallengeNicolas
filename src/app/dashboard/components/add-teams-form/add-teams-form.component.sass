@@ -6,7 +6,8 @@
 
 .form-subtitle
     font-family: 'Spiegel'
-    font-weight: bold   
+    font-weight: bold
+    margin: 0 
 
 .form-input
     background-color: $goldOne
@@ -15,3 +16,7 @@
     padding: 0.2rem
     min-width: 250px
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+.form-input-disabled
+    @extend .form-input
+    visibility: hidden

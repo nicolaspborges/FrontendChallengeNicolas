@@ -35,3 +35,10 @@ button
 
 .half-svg
     transform: scale(0.7)
+
+.disable-addteams-button
+    @extend .addteams-button
+    background-color: $greyTwo
+    cursor: not-allowed
+    pointer-events: none
+    visibility: hidden

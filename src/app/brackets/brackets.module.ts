@@ -5,6 +5,7 @@ import { BracketsRoutingModule } from './brackets-routing.module';
 import { BracketTileComponent } from './components/bracket-tile/bracket-tile.component';
 import { BracketComponent } from './components/bracket/bracket.component';
 import { TournamentComponent } from './pages/tournament/tournament.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TournamentComponent } from './pages/tournament/tournament.component';
   ],
   imports: [
     CommonModule,
-    BracketsRoutingModule
+    BracketsRoutingModule,
+    SharedModule
   ]
 })
 export class BracketsModule { }

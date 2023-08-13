@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,10 +7,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-teams-form.component.sass'],
 })
 export class AddTeamsFormComponent {
-    @Output() formSubmission = new EventEmitter<object>(); 
+    @Output() formSubmission = new EventEmitter<object>();
+    @Input() teamsQuantity!: number;
+
+    teamName: any = ''
 
     submitTeamsForm(form: NgForm) {
-        console.log(form.value);
         this.formSubmission.emit(form.value)
+        this.teamName = ''
     }
 }

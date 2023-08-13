@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
 import { Team } from 'src/app/models/team';
 import { EMPTY, catchError, switchMap } from 'rxjs';
@@ -17,11 +17,14 @@ export class HomeComponent {
     @Input() teamDeletion: EventEmitter<Team> = new EventEmitter<Team>();
 
     teamsData: Team[] = [];
+    isLoading: boolean = true;
+    @Output() teamLength:number = this.teamsData.length
 
     ngOnInit() {
         this.teamsService.getTeams().subscribe({
             next: (response) => {
                 this.teamsData = response;
+                this.isLoading = false;
             },
             error: (error) => {
                 console.error(error, 'Error getiing teams');

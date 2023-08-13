@@ -1,16 +1,18 @@
 <div class="home-container">
     <app-header></app-header>
     <div class="home-folder w-75 h-75 m-auto d-flex flex-column">
-        
 
-        <app-add-teams-form
-            (formSubmission)="onFormSubmission($event)"
-        ></app-add-teams-form>
+        <app-add-teams-form (formSubmission)="onFormSubmission($event)"
+            [teamsQuantity]="teamsData.length"></app-add-teams-form>
 
-        <app-teams-list [teams]="teamsData" (teamDeletion)="onTeamRemoval($event)" ></app-teams-list>
+        <app-teams-list [teams]="teamsData" (teamDeletion)="onTeamRemoval($event)"></app-teams-list>
 
-        <div class="home-start" [routerLink]="['/brackets']">
-            <a>START</a>
+        <div class="home-start mt-auto">
+            <div class="start-tag" [ngClass]="teamsData.length !== 8 ? 'disable' : 'start-tag'"
+                [routerLink]="['/brackets']">
+                <a>START</a>
+            </div>
+
         </div>
     </div>
 </div>

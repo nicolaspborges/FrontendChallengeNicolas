@@ -1,37 +1,19 @@
 <div class="bracket-display">
     <ul class="bracket-column">
-        <li
-            class="bracket-field"
-            *ngFor="let team of electedTeams; let i = index"
-        >
-            <app-bracket-tile
-                (selectedTeam)="onSemiFinalistSelect($event)"
-                [team]="team"
-                [index]="i"
-               
-            />
+        <li class="bracket-field" *ngFor="let team of electedTeams; let i = index">
+            <app-bracket-tile (selectedTeam)="onSemiFinalistSelect($event)" [team]="team" [index]="i" />
         </li>
     </ul>
     <ul class="bracket-column">
-        <li
-            class="bracket-field-empty"
-            *ngFor="let item of electedTeams; let i = index"
-        >
+        <li class="bracket-field-empty" *ngFor="let item of electedTeams; let i = index">
             <div class="upper" style="height: 50%"></div>
             <div class="lower" style="height: 50%"></div>
         </li>
     </ul>
 
     <ul class="bracket-column">
-        <li
-            class="bracket-field"
-            *ngFor="let item of semiFinalists | keyvalue; let i = index"
-        >
-            <app-bracket-tile
-                [team]="item.value"
-                (selectedTeam)="onFinalistSelect($event)"
-                [index]="i"
-            />
+        <li class="bracket-field" *ngFor="let item of semiFinalists | keyvalue; let i = index">
+            <app-bracket-tile [team]="item.value" (selectedTeam)="onFinalistSelect($event)" [index]="i" />
         </li>
     </ul>
 
@@ -44,16 +26,9 @@
     </ul>
 
     <ul class="bracket-column">
-        <li
-            class="bracket-field"
-            *ngFor="let item of finalists | keyvalue; let i = index"
-        >
+        <li class="bracket-field" *ngFor="let item of finalists | keyvalue; let i = index">
             <div class="bracket-filler-div">
-                <app-bracket-tile
-                    [team]="item.value"
-                    (selectedTeam)="onChampionsSelect($event)"
-                    [index]="i"
-                />
+                <app-bracket-tile [team]="item.value" (selectedTeam)="onChampionsSelect($event)" [index]="i" />
             </div>
         </li>
     </ul>
@@ -68,6 +43,10 @@
     <ul class="bracket-column">
         <li class="bracket-field">
             <div class="bracket-filler-div">
+                <div [ngClass]="championChosed ? '': 'champion-hide'" >
+                    <img style="width: 30px; height: 25px; transform: rotate(-45deg) translateX(45%) translateY(-30%);" src="../../../../assets/images/crown.svg" />
+                    
+                </div>
                 <app-bracket-tile [team]="champion" />
             </div>
         </li>

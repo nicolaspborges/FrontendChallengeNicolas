@@ -1,18 +1,21 @@
 <div class="d-flex flex-column">
 
-    <h2 class="form-title" > Bem vindo à Summoners Rift!</h2>
+    <h2 class="form-title"> Bem vindo à Summoners Rift!</h2>
 
-    <h3 class="form-subtitle" >Hoje todo o continente de Valoran se reúne para o torneio que marcará a história e decidirá o destino de milhões. A expectiva, medo e os ânimos estão a flor da pele.</h3>
-    
-    <span> Adicione as equipes para começar:</span>
-    
-    
-    <form #teamsForm="ngForm" class="d-flex" (ngSubmit)="submitTeamsForm(teamsForm)"  >
-        <input name="name" ngModel type="text" class="form-input" >
+    <h3 class="form-subtitle">Hoje todo o continente de Valoran se reúne para o torneio que marcará a história e
+        decidirá o destino de milhões. A expectiva, medo e os ânimos estão a flor da pele.</h3>
 
-        <app-button [buttonClass]="'addteams-button'" [svgName]="'add'" [buttonText]="'Adicionar'" [buttonType]="'submit'" ></app-button>
+    <span class="my-3" > No modelo atual do torneio, oito times disputam o título de campeão. Então, adicione 8 equipes para
+        começar:</span>
+
+    <form #teamsForm="ngForm" class="d-flex" (ngSubmit)="submitTeamsForm(teamsForm)"
+        [attr.disabled]="teamsQuantity >= 8 ? true : null">
+        <input name="name" [(ngModel)]="teamName" type="text"
+            [ngClass]="teamsQuantity >=8 ? 'form-input-disabled' : 'form-input'"
+            [attr.disabled]="teamsQuantity >= 8 ? true : null">
+
+        <app-button [buttonClass]="teamsQuantity >= 8 ? 'disable-addteams-button' : 'addteams-button'" [svgName]="'add'"
+            [buttonText]="'Adicionar'" [buttonType]="'submit'"></app-button>
     </form>
-    
+
 </div>
-
-
