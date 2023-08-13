@@ -1,7 +1,7 @@
 <div class="bracket-display">
     <ul class="bracket-column">
         <li class="bracket-field" *ngFor="let team of electedTeams; let i = index">
-            <app-bracket-tile (selectedTeam)="onSemiFinalistSelect($event)" [team]="team" [index]="i" />
+            <app-bracket-tile [dinamicClass]="choseState.eighths[i] === true ? 'normal' : 'eliminated'" (selectedTeam)="onSemiFinalistSelect($event)" [team]="team" [index]="i" />
         </li>
     </ul>
     <ul class="bracket-column">
@@ -13,7 +13,7 @@
 
     <ul class="bracket-column">
         <li class="bracket-field" *ngFor="let item of semiFinalists | keyvalue; let i = index">
-            <app-bracket-tile [team]="item.value" (selectedTeam)="onFinalistSelect($event)" [index]="i" />
+            <app-bracket-tile  [team]="item.value" (selectedTeam)="onFinalistSelect($event)" [index]="i" [dinamicClass]="choseState.fourths[i] === true ? 'normal' : 'eliminated'"/>
         </li>
     </ul>
 
@@ -28,7 +28,7 @@
     <ul class="bracket-column">
         <li class="bracket-field" *ngFor="let item of finalists | keyvalue; let i = index">
             <div class="bracket-filler-div">
-                <app-bracket-tile [team]="item.value" (selectedTeam)="onChampionsSelect($event)" [index]="i" />
+                <app-bracket-tile [team]="item.value" (selectedTeam)="onChampionsSelect($event)" [index]="i" [dinamicClass]="choseState.semis[i] === true ? 'normal' : 'eliminated'"/>
             </div>
         </li>
     </ul>

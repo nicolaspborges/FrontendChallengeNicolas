@@ -15,28 +15,34 @@ export class BracketComponent {
 
     chosen: any = {};
     rounds: number = 3;
-    teamsPerRound: number[] = [8, 4, 2]
+    teamsPerRound: number[] = [8, 4, 2];
 
-   
-    semiFinalists: any = { //names must be in alphabetical order
-        "semiAFirst": '',
-        "semiASecond": '',
-        "semiBFirst": '',
-        "semiBSecond": '',
+    semiFinalists: any = {
+        //names must be in alphabetical order
+        semiAFirst: '',
+        semiASecond: '',
+        semiBFirst: '',
+        semiBSecond: '',
     };
 
     finalists: any = {
-        "finalistA": '',
-        "finalistB": ''
-    } ;
+        finalistA: '',
+        finalistB: '',
+    };
 
-    champion: Team = {}  as Team;
+    choseState: any = {
+        eighths: Array(this.teamsPerRound[0]).fill(true),
+        fourths: Array(this.teamsPerRound[1]).fill(true),
+        semis: Array(this.teamsPerRound[2]).fill(true),
+    };
+
+    champion: Team = {} as Team;
     championChosed: boolean = false;
 
     @Input() teamSelected: EventEmitter<object> = new EventEmitter<object>();
 
     ngOnInit() {
-        console.log(this.champion)
+        console.log(this.choseState);
         this.teamsService.getTeams().subscribe({
             next: (response) => {
                 this.electedTeams = response;
@@ -50,10 +56,10 @@ export class BracketComponent {
         });
     }
 
-   
     onSemiFinalistSelect(selectedTeam: SelectedTeam) {
         const { index, team } = selectedTeam;
-
+        const phase = 'eighths';
+        this.onWinnerSelection(index, phase);
         switch (index) {
             case 0:
             case 1:
@@ -72,22 +78,33 @@ export class BracketComponent {
                 this.semiFinalists['semiBSecond'] = team;
                 break;
         }
-        
     }
 
     onFinalistSelect(selectedTeam: SelectedTeam) {
-       const { index, team } = selectedTeam;
+        const { index, team } = selectedTeam;
+        const phase = 'fourths';
+        this.onWinnerSelection(index, phase);
 
-       if(index < 2) {
-        this.finalists['finalistA'] = team;
-       } else if (index>=2 && index < 8) {
-        this.finalists['finalistB'] = team;
-       }
+        if (index < 2) {
+            this.finalists['finalistA'] = team;
+        } else if (index >= 2 && index < 8) {
+            this.finalists['finalistB'] = team;
+        }
     }
 
     onChampionsSelect(selectedTeam: SelectedTeam) {
-        this.champion = selectedTeam.team;
-        this.championChosed = true
-    }    
+        const { index, team } = selectedTeam;
+        const phase = 'semis';
+        this.onWinnerSelection(index, phase);
+        this.champion = team;
+        this.championChosed = true;
+    }
 
+    onWinnerSelection(index: number, phase: string) {
+        if (index % 2 === 0) {
+            this.choseState[phase][index + 1] = false;
+        } else {
+            this.choseState[phase][index - 1] = false;
+        }
+    }
 }
