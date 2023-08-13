@@ -8,14 +8,16 @@
     <span class="my-3" > No modelo atual do torneio, oito times disputam o título de campeão. Então, adicione 8 equipes para
         começar:</span>
 
-    <form #teamsForm="ngForm" class="d-flex" (ngSubmit)="submitTeamsForm(teamsForm)"
+    <form #teamsForm="ngForm" class="d-flex" style="margin-left: auto;" (ngSubmit)="submitTeamsForm(teamsForm)"
         [attr.disabled]="teamsQuantity >= 8 ? true : null">
-        <input name="name" [(ngModel)]="teamName" type="text"
+       
+            <input name="name" [(ngModel)]="teamName" type="text"
             [ngClass]="teamsQuantity >=8 ? 'form-input-disabled' : 'form-input'"
             [attr.disabled]="teamsQuantity >= 8 ? true : null">
 
         <app-button [buttonClass]="teamsQuantity >= 8 ? 'disable-addteams-button' : 'addteams-button'" [svgName]="'add'"
             [buttonText]="'Adicionar'" [buttonType]="'submit'"></app-button>
+        
     </form>
 
 </div>
