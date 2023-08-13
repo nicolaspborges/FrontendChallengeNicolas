@@ -12,6 +12,10 @@ export class TeamsService {
 
     apiUrl = environment.apiUrl;
 
+    getRandomNumber() {
+        return Math.floor(Math.random() * 16);
+    };
+
     getTeams(): Observable<Team[]> {
         return this.http.get<Team[]>(this.apiUrl + 'teams').pipe(
             catchError((error) => {
@@ -24,7 +28,10 @@ export class TeamsService {
     }
 
     addTeams(body: object): Observable<object> {
-        return this.http.post(this.apiUrl + 'teams', body).pipe(
+        const capNumber = this.getRandomNumber();
+        const newBody = {...body, "capUrl": `assets/images/team-leaders/${capNumber}.png`}
+        console.log()
+        return this.http.post(this.apiUrl + 'teams', newBody).pipe(
             catchError((error) => {
                 return throwError(
                     () => new Error('Error adding team', error)

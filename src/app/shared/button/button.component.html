@@ -1,6 +1,6 @@
 <button [class]="buttonClass" [style]="buttonStyle" [type]="buttonType" (click)="buttonAction.emit()">
-    <span class="btn__span">{{buttonText}}</span>
+    <span class="btn__span" [ngStyle]="{'display': buttonText.length > 0 ? 'flex': 'none'}" >{{buttonText}}</span>
     <mat-icon [style.color]="svgColor"
-        [ngStyle]="{'display': svgName.length > 0 ? 'flex' : 'none'}" [class]="svgClass" >{{svgName}}</mat-icon>
+        [ngStyle]="{'display': svgName.length > 0 ? 'inline' : 'none'}" [class]="svgClass" >{{svgName}}</mat-icon>
 
 </button>

@@ -17,16 +17,16 @@
         <tr>
             <th class="p-1" >Id</th>
             <th class="p-1" >Nome</th>
-            <th class="p-1" >Capitão</th>
-            <th style="width: 70px;" class="p-1" >Remover</th>
+            <th style="width: 70px;" class="p-1" >Líder</th>
+            <th  style="width: 70px;" class="p-1" >Remover</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let team of teams">
             <td class="p-1" >{{team.id}}</td>
             <td class="p-1" >{{team.name}}</td>
-            <td class="p-1" >capt</td>
-            <td style="width: 70px;" class="p-1" > <app-button [svgName]="'delete'" [buttonClass]="'delete-teams-button'" [svgColor]="'#1E282D'" [svgClass]="'half-svg'" (buttonAction)="onDeleteTeam(team)"></app-button></td>
+            <td style="width: 70px;" class="p-1 text-center" ><img style="width: 30px;height: 30px;vertical-align: middle;" src="{{team.capUrl}}"></td>
+            <td style="width: 70px;" class="p-1 text-center align-middle" > <app-button [svgName]="'delete'" [buttonClass]="'delete-teams-button'" [svgColor]="'#1E282D'" [svgClass]="'half-svg'" (buttonAction)="onDeleteTeam(team)"></app-button></td>
         </tr>
     </tbody>
 </table>

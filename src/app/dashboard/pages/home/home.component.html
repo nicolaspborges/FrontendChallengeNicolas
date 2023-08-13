@@ -5,7 +5,7 @@
         <app-add-teams-form (formSubmission)="onFormSubmission($event)"
             [teamsQuantity]="teamsData.length"></app-add-teams-form>
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mt-3">
             <app-teams-list style="width: 50%;" [teams]="teamsData" (teamDeletion)="onTeamRemoval($event)"></app-teams-list>
 
             <div class="home-start mt-auto">

@@ -4,7 +4,6 @@ button
     cursor: pointer
     font-family: 'Spiegel'
     font-weight: bold   
-    display: flex
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 
 .btn__span 
@@ -15,6 +14,7 @@ button
     background-color: inherit
 
 .addteams-button
+    display: flex
     border: none
     border-radius: 0 10px 10px 0
     height: 25px
@@ -32,9 +32,14 @@ button
     background-color: inherit
     border: none
     box-shadow: none
+    vertical-align: middle
+    display: inline
+    transform: scale(0.7)
+    
+    
 
 .half-svg
-    transform: scale(0.7)
+    
 
 .disable-addteams-button
     @extend .addteams-button
