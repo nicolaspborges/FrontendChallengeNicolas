@@ -1,44 +1,9 @@
 {
   "teams": [
     {
-      "name": "dasdas",
-      "capUrl": "assets/images/team-leaders/8.png",
+      "name": "Team One",
+      "capUrl": "assets/images/team-leaders/36.png",
       "id": 1
-    },
-    {
-      "name": "asdasd",
-      "capUrl": "assets/images/team-leaders/13.png",
-      "id": 2
-    },
-    {
-      "name": "asdas",
-      "capUrl": "assets/images/team-leaders/7.png",
-      "id": 3
-    },
-    {
-      "name": "sdasd",
-      "capUrl": "assets/images/team-leaders/6.png",
-      "id": 4
-    },
-    {
-      "name": "asdasd",
-      "capUrl": "assets/images/team-leaders/13.png",
-      "id": 5
-    },
-    {
-      "name": "werqwe",
-      "capUrl": "assets/images/team-leaders/1.png",
-      "id": 6
-    },
-    {
-      "name": "rwerwe",
-      "capUrl": "assets/images/team-leaders/6.png",
-      "id": 7
-    },
-    {
-      "name": "qwerwe",
-      "capUrl": "assets/images/team-leaders/9.png",
-      "id": 8
     }
   ]
 }

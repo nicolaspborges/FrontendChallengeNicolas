@@ -13,7 +13,7 @@ export class TeamsService {
     apiUrl = environment.apiUrl;
 
     getRandomNumber() {
-        return Math.floor(Math.random() * 16);
+        return Math.floor(Math.random() * 70);
     };
 
     getTeams(): Observable<Team[]> {
