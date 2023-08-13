@@ -1,11 +1,16 @@
-<app-header></app-header>
+<div class="home-container">
+    <app-header></app-header>
+    <div class="home-folder w-75 h-75 m-auto d-flex flex-column">
+        
 
-<app-add-teams-form (formSubmission)="onFormSubmission($event)" ></app-add-teams-form>
+        <app-add-teams-form
+            (formSubmission)="onFormSubmission($event)"
+        ></app-add-teams-form>
 
-<app-teams-list [teams]="teamsData" ></app-teams-list>
+        <app-teams-list [teams]="teamsData"></app-teams-list>
 
-
-<div [routerLink]="['/brackets']" >
-    <a>START</a>
+        <div [routerLink]="['/brackets']">
+            <a>START</a>
+        </div>
+    </div>
 </div>
-

@@ -11,6 +11,7 @@ export class BracketTileComponent {
 
     @Input() team!: any;
     @Input() index!: number;
+    @Input() dinamicClass!: string;
 
     @Output() selectedTeam: EventEmitter<SelectedTeam> = new EventEmitter<SelectedTeam>();
    

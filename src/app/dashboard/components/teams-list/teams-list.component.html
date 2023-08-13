@@ -1,7 +1,9 @@
-<ul class="team-list" *ngFor="let team of teams" >
+<ul class="team-list d-flex" *ngFor="let team of teams" >
     <li>{{team.id}}</li>
     <li>{{team.name}}</li>
-    
+    <li>
+        <app-button [buttonClass]="'delete'" [svgName]="'delete'" />
+    </li>
 </ul>
 
 <p>{{teams.length}}</p>

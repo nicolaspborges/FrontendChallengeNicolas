@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
 
-    <span> Bem vindo ao torneio de valorant</span>
+    <span> Bem vindo ao torneio do continente de Valoran</span>
     
     <span> Adicione as equipes para começar:</span>
     
@@ -8,7 +8,7 @@
     <form #teamsForm="ngForm" (ngSubmit)="submitTeamsForm(teamsForm)"  >
         <input name="name" ngModel type="text"  >
 
-        <app-button [buttonClass]="'addteams-button'" [buttonStyle]="'background-color: red'" [buttonText]="'Adicionar'" [buttonType]="'submit'" ></app-button>
+        <app-button [buttonClass]="'addteams-button'" [svgName]="'add'" [buttonStyle]="'background-color: red'" [buttonText]="'Adicionar'" [buttonType]="'submit'" ></app-button>
     </form>
     
 </div>

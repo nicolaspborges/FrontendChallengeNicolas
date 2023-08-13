@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: ['./button.component.sass']
 })
 export class ButtonComponent {
-    @Input() buttonText: string = 'button';
+    @Input() buttonText: string = '';
     @Input() buttonClass: string = 'standard';
     @Input() svgName: string = '';
     @Input() svgColor!: string;
