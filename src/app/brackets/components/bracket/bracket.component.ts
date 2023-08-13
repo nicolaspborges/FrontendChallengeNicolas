@@ -13,10 +13,11 @@ export class BracketComponent {
 
     electedTeams!: Team[];
 
-    chosen: any = [true, true, true, true, true, true, true, true]
+    chosen: any = {};
+    rounds: number = 3;
+    teamsPerRound: number[] = [8, 4, 2]
 
-    eighthFinalists!: Team[];
-
+   
     semiFinalists: any = { //names must be in alphabetical order
         "semiAFirst": '',
         "semiASecond": '',
@@ -48,6 +49,7 @@ export class BracketComponent {
         });
     }
 
+   
     onSemiFinalistSelect(selectedTeam: SelectedTeam) {
         const { index, team } = selectedTeam;
 
@@ -69,7 +71,7 @@ export class BracketComponent {
                 this.semiFinalists['semiBSecond'] = team;
                 break;
         }
-        console.log(this.semiFinalists);
+        
     }
 
     onFinalistSelect(selectedTeam: SelectedTeam) {
@@ -84,15 +86,6 @@ export class BracketComponent {
 
     onChampionsSelect(selectedTeam: SelectedTeam) {
         this.champion = selectedTeam.team;
-    }
+    }    
 
-    quarterPositions!: any;
-
-    lengthTwo = [1, 2, 3, 4, 5, 6, 7, 8];
-
-    lengthTre = [1, 2, 3, 4];
-
-    lengthFour = [1, 2];
-
-    lengthFive = [1];
 }

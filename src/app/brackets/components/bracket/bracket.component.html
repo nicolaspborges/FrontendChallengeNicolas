@@ -8,7 +8,7 @@
                 (selectedTeam)="onSemiFinalistSelect($event)"
                 [team]="team"
                 [index]="i"
-                [dinamicClass]="chosen[i] ? 'normal' : 'eliminated'"
+               
             />
         </li>
     </ul>
@@ -36,7 +36,7 @@
     </ul>
 
     <ul class="bracket-column">
-        <li class="bracket-field-empty" *ngFor="let item of lengthTre">
+        <li class="bracket-field-empty" *ngFor="let item of semiFinalists | keyvalue">
             <div class="upper" style="height: 25%"></div>
             <div style="height: 50%"></div>
             <div class="lower" style="height: 25%"></div>
@@ -59,7 +59,7 @@
     </ul>
 
     <ul class="bracket-column">
-        <li class="bracket-field-empty" *ngFor="let item of lengthFour">
+        <li class="bracket-field-empty" *ngFor="let item of finalists | keyvalue">
             <div class="upper" style="height: 50%"></div>
             <div class="lower" style="height: 50%"></div>
         </li>

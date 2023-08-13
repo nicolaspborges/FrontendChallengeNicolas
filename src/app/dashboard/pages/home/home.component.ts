@@ -13,6 +13,8 @@ export class HomeComponent {
 
     @Input() newTeamSubmission: EventEmitter<object> =
         new EventEmitter<object>();
+    
+    @Input() teamDeletion: EventEmitter<Team> = new EventEmitter<Team>();
 
     teamsData: Team[] = [];
 
@@ -22,9 +24,8 @@ export class HomeComponent {
                 this.teamsData = response;
             },
             error: (error) => {
-                console.error(error, "Error getiing teams");
-                
-            }
+                console.error(error, 'Error getiing teams');
+            },
         });
     }
 
@@ -51,5 +52,25 @@ export class HomeComponent {
             });
     }
 
-    
+    onTeamRemoval(team: Team) {
+        const { id, name } = team;
+        this.teamsService.deleteTeam(id).pipe(
+            switchMap(() => this.teamsService.getTeams()),
+            catchError((error) => {
+                console.error(`Error deleting team ${id}`, error);
+                return EMPTY;
+            })
+        )
+        .subscribe({
+            next: (response) => {
+                this.teamsData = response;
+            },
+            error: (error) => {
+                console.error(
+                    'Error on getting teams after form submission:',
+                    error
+                );
+            },
+        });
+    }
 }

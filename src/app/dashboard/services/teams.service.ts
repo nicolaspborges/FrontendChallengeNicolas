@@ -32,4 +32,14 @@ export class TeamsService {
             })
         );
     }
+
+    deleteTeam(id: number): Observable<any> {
+        return this.http.delete(this.apiUrl + `teams/${id}`).pipe(
+            catchError((error)=> {
+                return throwError(
+                    () => new Error('Error removing team', error)
+                )
+            })
+        )
+    }
 }

@@ -7,9 +7,9 @@
             (formSubmission)="onFormSubmission($event)"
         ></app-add-teams-form>
 
-        <app-teams-list [teams]="teamsData"></app-teams-list>
+        <app-teams-list [teams]="teamsData" (teamDeletion)="onTeamRemoval($event)" ></app-teams-list>
 
-        <div [routerLink]="['/brackets']">
+        <div class="home-start" [routerLink]="['/brackets']">
             <a>START</a>
         </div>
     </div>

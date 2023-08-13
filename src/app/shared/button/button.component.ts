@@ -10,6 +10,7 @@ export class ButtonComponent {
     @Input() buttonClass: string = 'standard';
     @Input() svgName: string = '';
     @Input() svgColor!: string;
+    @Input() svgClass!: string;
     @Input() buttonStyle!: string;
     @Input() buttonType!: string;
     @Output() buttonAction: EventEmitter<void> = new EventEmitter();
