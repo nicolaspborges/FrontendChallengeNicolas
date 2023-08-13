@@ -4,24 +4,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run the application, install the dependencies using the command "npm i."
 
-## Code scaffolding
+Then, simply execute "npm run start," which will run the commands "json-server --watch src/db.json & ng serve."
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Alternatively, you can instantiate them separately by running "json-server --watch src/db.json" in one terminal and "ng serve" in another.
 
-## Build
+Json-server is a "mini" REST API that enables data mocking and simulates the application in use.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### About
 
-## Running unit tests
+The application allows the user to add 8 teams and experience a dynamic tournament bracket.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+As the challenge is set in Valoran, I found it appropriate to use the color palette and typography from League of Legends (although I prefer lighter tones usually).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
