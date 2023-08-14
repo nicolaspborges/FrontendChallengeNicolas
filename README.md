@@ -21,4 +21,3 @@ As the challenge is set in Valoran, I found it appropriate to use the color pale
 ### Creator
 
 https://github.com/nicolaspborges96
-https://www.linkedin.com/in/nicolas-p-borges/
